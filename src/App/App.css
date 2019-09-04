@@ -53,3 +53,14 @@
   color: red;
   font-size: 14px;
 }
+
+.loading {
+  background-color: #555555;
+  color: white;
+  border-radius: 5px;
+  padding: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

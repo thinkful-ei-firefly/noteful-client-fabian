@@ -1,10 +1,10 @@
 import React from 'react';
-import config from './config';
-import './App/App.css';
-import ApiContext from './ApiContext';
-import NotefulForm from "./NotefulForm/NotefulForm";
+import config from '../config';
+import '../App/App.css';
+import ApiContext from '../ApiContext';
+import NotefulForm from "../NotefulForm/NotefulForm";
 
-class AddForm extends React.Component{
+class AddFolder extends React.Component{
   static contextType = ApiContext;
   state = {
     folderName: ''
@@ -59,4 +59,4 @@ class AddForm extends React.Component{
   }
 }
 
-export default AddForm;
+export default AddFolder;

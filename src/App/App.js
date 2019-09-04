@@ -8,7 +8,7 @@ import NotePageMain from '../NotePageMain/NotePageMain';
 import ApiContext from '../ApiContext';
 import config from '../config';
 import './App.css';
-import AddFolder from '../Add-Folder';
+import AddFolder from '../AddFolder/AddFolder';
 import AddNote from '../AddNote/AddNote';
 import ErrorPage from '../ErrorBoundry';
 
@@ -17,7 +17,8 @@ import ErrorPage from '../ErrorBoundry';
 class App extends Component {
     state = {
         notes: [],
-        folders: []
+        folders: [],
+        loading: true
     };
 
     updateState = (folder) => {
@@ -52,7 +53,8 @@ class App extends Component {
                 return Promise.all([notesRes.json(), foldersRes.json()]);
             })
             .then(([notes, folders]) => {
-                this.setState({notes, folders});
+                const loading = false;
+                this.setState({notes, folders, loading});
             })
             .catch(error => {
                 console.error({error});
@@ -123,6 +125,7 @@ class App extends Component {
                     </header>
                     <main className="App__main">{this.renderMainRoutes()}</main>
                 </div>
+                {this.state.loading && <div className="loading">{this.state.loading}Loading..</div> }
                 </ErrorPage>
             </ApiContext.Provider>
         );
